@@ -83,7 +83,7 @@ func inc(ip net.IP) {
 }
 
 // Scan 扫描指定子网的存活 IP 地址
-func Scan(subnet string) ([]string, error) {
+func SubnetScan(subnet string) ([]string, error) {
 	ips, err := ipRange(subnet)
 	if err != nil {
 		return nil, err
@@ -98,11 +98,12 @@ func Scan(subnet string) ([]string, error) {
 		go func(ip string) {
 			defer wg.Done()
 			if pingIP(ip) {
-				// 加锁，确保同时修改切片时不会出现并发问题
 				mutex.Lock()
 				aliveIPs = append(aliveIPs, ip)
 				mutex.Unlock()
 				fmt.Printf("%s is alive!\n", ip)
+			} else {
+				fmt.Printf("%s is not responding\n", ip)
 			}
 		}(ip)
 	}
@@ -110,4 +111,21 @@ func Scan(subnet string) ([]string, error) {
 	wg.Wait()
 
 	return aliveIPs, nil
+}
+
+func SingleScan(ip string) (bool, error) {
+	if net.ParseIP(ip) == nil {
+		return false, fmt.Errorf("invalid IP address: %s", ip)
+	}
+
+	fmt.Printf("Scanning single IP: %s...\n", ip)
+	isAlive := pingIP(ip)
+
+	if isAlive {
+		fmt.Printf("%s is alive\n", ip)
+	} else {
+		fmt.Printf("%s is not responding\n", ip)
+	}
+
+	return isAlive, nil
 }
