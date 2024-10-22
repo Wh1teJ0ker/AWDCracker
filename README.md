@@ -1,5 +1,6 @@
 # AWDCracker
 
+```
 /AWDCracker
 │
 ├── main.go           # 主程序入口
@@ -20,3 +21,10 @@
 │
 ├── go.mod          # Go 模块文件
 └── go.sum          # 依赖文件
+```
+
+编译命令
+
+```
+fyne package -os windows -icon joker.jpg
+```
