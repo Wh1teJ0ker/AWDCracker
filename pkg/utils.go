@@ -33,14 +33,13 @@ func LoadIPs(filename string) ([]string, error) {
 }
 
 func ExportIPs(filename string, ips []string) error {
-	// 创建或打开文件
+
 	file, err := os.Create(filename)
 	if err != nil {
 		return err
 	}
 	defer file.Close()
 
-	// 使用 bufio 写入文件
 	writer := bufio.NewWriter(file)
 	for _, ip := range ips {
 		_, err := writer.WriteString(ip + "\n") // 每个 IP 地址写入一行
@@ -49,6 +48,5 @@ func ExportIPs(filename string, ips []string) error {
 		}
 	}
 
-	// 刷新缓存，确保所有内容写入文件
 	return writer.Flush()
 }
