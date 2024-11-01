@@ -9,7 +9,6 @@ import (
 // CreateAttackModule 创建攻击模块
 func CreateAttackModule() fyne.CanvasObject {
 	return container.NewVBox(
-		widget.NewLabel("Attack Module"),
 		widget.NewButton("Start Attack", func() {
 			// 调用攻击功能
 		}),

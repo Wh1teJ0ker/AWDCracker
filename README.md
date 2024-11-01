@@ -21,8 +21,7 @@
 │   ├── scan.go          # 扫描模块的 UI
 │   ├── attack.go        # 攻击模块的 UI
 │   ├── interference.go  # 干扰模块的 UI
-│   ├── shell.go         # Shell模块的 UI
-│   └── log.go           # 日志模块的 UI
+│   └── shell.go         # Shell模块的 UI
 |
 ├── README.md       # 项目文档
 │
@@ -33,5 +32,6 @@
 编译命令
 
 ```
-fyne package -os windows -icon joker.jpg
+fyne package -os windows -icon ./resources/img/joker.jpg
+CGO_ENABLED=1 GOOS=windows GOARCH=amd64 CC=x86_64-w64-mingw32-gcc fyne package -icon ./resources/img/joker.jpg
 ```

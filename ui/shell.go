@@ -9,7 +9,6 @@ import (
 // CreateShellModule 创建Shell模块
 func CreateShellModule() fyne.CanvasObject {
 	return container.NewVBox(
-		widget.NewLabel("Shell Management Module"),
 		widget.NewButton("Manage Shell", func() {
 			// 管理shell文件
 		}),
