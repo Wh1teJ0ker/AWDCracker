@@ -5,14 +5,12 @@
 │
 ├── main.go         # 主程序入口
 │
-├── /pkg            # 核心功能模块
-│   ├── scan.go     # 扫描模块
-│   ├── attack.go   # 防御模块
-│   ├── utils.go    # 工具函数库
-│   └── config.go   # 配置模块
-│
-├── /internal       # 内部工具
-│   └── logger.go   # 日志工具
+├── /pkg                   # 核心功能模块
+│   ├── scan.go            # 扫描模块
+│   ├── attack.go          # 攻击模块
+│   ├── interference.go    # 干扰库
+│   ├── ui.go              # UI界面设计
+│   └── utils.go           # 工具函数模块
 │
 ├── /resources        # 资源文件存放
 │   ├── img
