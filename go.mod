@@ -2,7 +2,10 @@ module AWDCracker
 
 go 1.20
 
-require fyne.io/fyne/v2 v2.5.2
+require (
+	fyne.io/fyne/v2 v2.5.2
+	golang.org/x/net v0.30.0
+)
 
 require (
 	fyne.io/systray v1.11.0 // indirect
@@ -30,8 +33,9 @@ require (
 	github.com/yuin/goldmark v1.7.1 // indirect
 	golang.org/x/image v0.18.0 // indirect
 	golang.org/x/mobile v0.0.0-20231127183840-76ac6878050a // indirect
-	golang.org/x/net v0.30.0 // indirect
 	golang.org/x/sys v0.26.0 // indirect
 	golang.org/x/text v0.19.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
+
+require "ui" v0.0.0

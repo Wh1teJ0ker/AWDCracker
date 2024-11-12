@@ -1,7 +1,7 @@
 package main
 
 import (
-	"AWDCracker/ui"
+	"AWDCracker/src"
 
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/app"
@@ -14,10 +14,10 @@ func main() {
 
 	// 创建功能模块的界面
 	w.Resize(fyne.NewSize(720, 480))
-	scanModule := ui.CreateScanModule()                 // 扫描模块
-	attackModule := ui.CreateAttackModule()             // 攻击模块
-	interferenceModule := ui.CreateInterferenceModule() // 干扰模块
-	shellModule := ui.CreateShellModule()               // Shell 模块
+	scanModule := src.CreateScanModule(w)                // 扫描模块
+	attackModule := src.CreateAttackModule()             // 攻击模块
+	interferenceModule := src.CreateInterferenceModule() // 干扰模块
+	shellModule := src.CreateShellModule()               // Shell 模块
 
 	// 将模块放置在选项卡中
 	tabs := container.NewAppTabs(
